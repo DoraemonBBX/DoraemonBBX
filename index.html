@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 浏览器标签上显示的网站标题 -->
+    <title>苦橘舘</title>
+    <!-- 网站介绍 -->
+    <meta name="description" content="小柒的『角落』">
+    <meta name="keywords" content="个人主页,苦橘馆">
+    <!-- 浏览器标签上显示的图标 -->
+    <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="./static/style.css?v=1.2.0">
+    <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
+
+    <!-- 自定义设置 -->
+    <!--
+        随机API：
+        东方：https://img.paulzzh.com/ | https://img.paulzzh.com/touhou/random
+        樱花二次元：https://www.dmoe.cc/ | https://www.dmoe.cc/random.php
+        举个栗子次元：https://t.mwm.moe/ | https://t.mwm.moe/ycy
+        勿埋我心：https://www.skyqian.com/archives/SanQianZhiTu-random_img.html
+        IMGAPI: https://imgapi.cn/
+    -->
+    <style>
+        body {
+            /*背景图片URL 可使用随机图片API */
+            background-image: url("https://t.mwm.moe/fj");
+        }
+
+        .photo-bg {
+            /* 卡片左侧图片 */
+            background-image: url("https://imgapi.cn/api.php?zd=zsy&fl=suiji&gs=images");            
+        }
+    </style>
+    <script>
+        // 音乐设置
+        let meting_music_api = "https://v.iarc.top/";// meting api 采用圆弧派公益接口：https://www.iarc.top/149.html
+        let music_server = "netease"; // 音乐服务：网易云 netease 参见 meting api支持的服务
+        let music_type = "playlist"; // 歌曲类型：歌单playlist 单首歌曲 song  专辑 album
+        let music_id = "8199833036"; // 歌单ID或歌曲ID或者专辑ID 20173709 29732992
+        let music_order = "random"; // 音频循环顺序, 顺序播放： 'list', 随机播放：'random'
+        let music_mini = false; // mini模式 吸底模式开启后此选项实效 true / false
+        let music_fixed = false; // 吸底模式
+        let music_volume = 0.6; // 默认音量
+        let music_autoplay = false; // 自动播放
+        let music_loop = "all"; // 音频循环播放, 可选值: 'all', 'one', 'none' ，分别为全部循环，单曲循环，不循环
+        // TODO 一言设置
+    </script>
+    <!-- end 自定义设置 -->
+</head>
+
+<body>
+    <div class="kz-video">
+        <video url="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/video/shitu.mp4" autoplay="autoplay" loop muted playsinline="" webkit-playsinline=""></video>
+    </div>
+        <div id="main" class="container">
+        <div class="row my-card justify-content-center">
+            <div class="col-lg-4 photo-bg"></div>
+            <div class="col-lg-8 card">
+                <!-- 大标题 -->
+                <h1 style="text-align: left; color: rgba(218, 143, 5, 0.923); font-weight: bolder;">苦橘舘</h1>
+                <!-- 标题下的一段话 -->
+                <p style="text-align: left; color: rgb(132, 9, 34); font-style: italic;">
+                    輕輕走路，用心生活 <br>
+                    The best is always yet to come!
+                </p>
+                <p id="hitokoto_text" style="overflow: auto;">:D 一言获取中...</p>            
+                <div class="container-fluid" >
+                    <div class="row align-items-center" >
+                        <!-- 导航按钮组 -->
+                        <!--HTML中button标签点击实现页面跳转的三种方法:https://www.jb51.net/web/675851.html-->                        
+                        <button window.location.href="https://tangerine.eu.org/" data-title="書·影" data-window="newtab" data-anim="4" 
+                              data-shade="true" disabled="true"
+                            class="kz-nav-btn btn btn-secondary col-lg-4">書·影</button>
+        
+                        <button data-href="https://link3.cc/tangerine" data-title="link" data-window="pop" data-anim="4" 
+                              data-shade="false" 
+                            class="kz-nav-btn btn btn-primary col-lg-4">Link3</button>
+                       
+                        <button onclick="window.open('60s.html')" data-title="link" data-window="pop" data-anim="4" 
+                             data-shade="false" 
+                            class="kz-nav-btn btn btn-info col-lg-4">60s简报</button>
+                        <!-- end 导航按钮组 -->
+                    </div>
+                </div>
+                <!-- aplayer inner -->
+                <div id="aplayer-inner" class="aplayer"></div>
+                <!-- end aplayer inner -->
+
+                <footer>                   
+                    <!-- 
+                        技术栈标签, 小标签来自: https://shields.io/
+                        https://shields.io/badges/static-badge
+
+                        1. shields 链接格式: 
+                        https://img.shields.io/badge/-{标签文本}-{标签背景色}?style={标签类型}&logo={标签前面 Logo}&logoColor={Logo 颜色}
+                        https://img.shields.io/badge/with%20a%20logo-grey? style=for-the-badge&logo=JavaScript
+                        any text you like - https://img.shields.io/badge/any%20text-you%20like-blue
+                        
+                        2. shields 可选 Logo 列表参考: 
+                        https://github.com/simple-icons/simple-icons/blob/develop/slugs.md
+                        
+
+                    -->
+                    <!--网页信息条-->
+                    <div>
+                        <a class="github-badge" target="_blank" href="https://github.com/" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="本站代码由Github托管">
+                            <img src="https://img.shields.io/badge/Code-Github-blue?style=flat&amp;logo=GitHub" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://vercel.com/" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="本站由vercel托管">
+                            <img src="https://img.shields.io/badge/Hosting-vercel-blue?style=flat&amp;logo=vercel" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://future.170601.xyz/KZHomePage/" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="主题KZHomePage">
+                            <img src="https://img.shields.io/badge/Theme-KZHomePage-blue?style=flat&amp;logo=githubpages" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://github.com/54ayao/Chinajsdelivr" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="本站使用jsDelivrChina提供CDN加速">
+                            <img src="https://img.shields.io/badge/CDN-jsDelivr-blue?style=flat&amp;logo=jsDelivr" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://v.iarc.top/" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="音乐使用圆弧派API">
+                            <img src="https://img.shields.io/badge/Listen-圆弧派API-blue?style=flat" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://www.jun.la/" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="60s新闻使用小军博客API">
+                            <img src="https://img.shields.io/badge/60s-小俊API-blue?style=flat" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://finicounter.eu.org" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="Finicounter计数">
+                            <img src="https://img.shields.io/badge/Counter-Finicounter-blue?style=flat" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://busuanzi.ibruce.info" 
+                            rel="external nofollow noreferrer" style="margin-inline:5px" title="不蒜子计数">
+                            <img src="https://img.shields.io/badge/Counter-不蒜子-blue?style=flat" alt=""></a>                     
+                        
+                    </div>
+                    <p style="text-align: right;">
+                        本站总访问量：
+                        <span id="finicount_views"></span>次(Finicounter)&emsp;|&emsp;
+                        <span id="busuanzi_value_site_pv"></span>次(不蒜子)
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- aplayer -->
+    <div id="aplayer-fixed" class="aplayer"></div>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./static/APlayer-1.10.1/dist/APlayer.min.js"></script>
+    <script src="./static/Meting.min.js"></script>
+    <!-- end_aplayer -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script defer src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./static/layer-v3.5.1/layer/layer.js"></script>
+
+    <script src="./static/main.js"></script>
+    
+    <!-- swiper
+    <script src="./static/swiper-11.0.3/swiper-bundle.min.js"></script>
+    <script>        
+        var mySwiper = new Swiper ('.swiper', {
+          direction: 'vertical', // 垂直切换选项
+          loop: true, // 循环模式选项
+          autoplay:true //自动切换
+          /*autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+            },*/
+          
+          // 如果需要分页器
+          /*pagination: {
+            el: '.swiper-pagination',
+          },*/
+          
+          // 如果需要前进后退按钮
+          /*navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },*/
+          
+          // 如果需要滚动条
+          /*scrollbar: {
+            el: '.swiper-scrollbar',
+          },*/
+        })        
+    </script>
+    -->
+    <!--引入网站访客计数器：https://finicounter.eu.org -->
+    <script async src="//finicounter.eu.org/finicounter.js"></script>
+    <!--引入不蒜子计数：https://busuanzi.ibruce.info/-->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>    
+
+    <!-- 禁用F12代码 -->
+    <script>
+     //禁用右键
+     window.oncontextmenu = function () { return false; }
+        //禁止任何键盘敲击事件（防止F12和shift+ctrl+i调起开发者工具） 
+        /*    window.onkeydown = window.onkeyup = window.onkeypress = function () { 
+                window.event.returnValue = false; 
+                return false; 
+            } */
+
+        //无限debugger
+        setInterval(function () {
+            check();
+        }, 2000);
+        var check = function () {
+            function doCheck(a) {
+                if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+                    (function () { }['constructor']('debugger')());
+                } else {
+                    (function () { }['constructor']('debugger')());
+                }
+                doCheck(++a);
+            }
+            try {
+                doCheck(0);
+            } catch (err) { }
+        };
+        check();
+        //网站禁止选择文字
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+        document.onkeydown = function () {
+            //禁止ctrl+u
+            if (event.ctrlKey && window.event.keyCode == 85) {
+                return false;
+            }
+            //禁止 F12
+            if (window.event && window.event.keyCode == 123) {
+                event.keyCode = 0;
+                event.returnValue = false;
+            }
+            //禁止ctrl+s
+            if (event.ctrlKey && window.event.keyCode == 83) {
+                return false;
+            }
+            //禁止 F5          
+//            if (window.event && window.event.keyCode == 116) {
+//                event.keyCode = 0;
+//                event.returnValue = false;
+//            }           
+        }
+    </script>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 浏览器标签上显示的网站标题 -->
+    <title>苦橘舘</title>
+    <!-- 网站介绍 -->
+    <meta name="description" content="小柒的『角落』">
+    <meta name="keywords" content="个人主页,苦橘馆">
+    <!-- 浏览器标签上显示的图标 -->
+    <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">    
+</head>
+
+<body>               
+    <!-- 大标题 -->    
+    <h1 style="text-align: center; color: rgba(218, 143, 5, 0.923); font-weight: bolder;">每天60秒读懂世界</h1>
+    <!-- 标题下的一段话 -->
+    <p style="text-align: center; color: rgb(132, 9, 34); font-style: italic;">                    
+        每天60秒读懂世界，15条简报+1条微语，让你瞬间了解世界正在发生的大事。
+    </p>
+    <div style="text-align: center; ">
+        <img alt="" src="https://api.jun.la/60s.php?format=image" style="margin: 0 auto;" />
+    </div>   
+</body>
+    <!-- 禁用F12代码 -->
+    <script>
+     //禁用右键
+     window.oncontextmenu = function () { return false; }
+        //禁止任何键盘敲击事件（防止F12和shift+ctrl+i调起开发者工具） 
+        /*    window.onkeydown = window.onkeyup = window.onkeypress = function () { 
+                window.event.returnValue = false; 
+                return false; 
+            } */
+
+        //无限debugger
+        setInterval(function () {
+            check();
+        }, 2000);
+        var check = function () {
+            function doCheck(a) {
+                if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+                    (function () { }['constructor']('debugger')());
+                } else {
+                    (function () { }['constructor']('debugger')());
+                }
+                doCheck(++a);
+            }
+            try {
+                doCheck(0);
+            } catch (err) { }
+        };
+        check();
+        //网站禁止选择文字
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+        document.onkeydown = function () {
+            //禁止ctrl+u
+            if (event.ctrlKey && window.event.keyCode == 85) {
+                return false;
+            }
+            //禁止 F12
+            if (window.event && window.event.keyCode == 123) {
+                event.keyCode = 0;
+                event.returnValue = false;
+            }
+            //禁止ctrl+s
+            if (event.ctrlKey && window.event.keyCode == 83) {
+                return false;
+            }
+            //禁止 F5          
+//            if (window.event && window.event.keyCode == 116) {
+//                event.keyCode = 0;
+//                event.returnValue = false;
+//            }           
+        }
+    </script>
+
+</html>
