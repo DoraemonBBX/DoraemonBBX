@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="./static/style.css?v=1.2.0">
     <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
+    <!-- 实时显示时间 -->
+    <script>
+        function mytime(){
+            var a = new Date();
+            var b = a.toLocaleTimeString();
+            var c = a.toLocaleDateString();
+            document.getElementById("time").innerHTML = c+"&nbsp"+b;
+            }
+        setInterval(function() {mytime()},1000);
+    </script>
+    <style>
+        .left {
+          float: left;
+        }
+        
+        .right {
+          float: right;
+        }
+    </style>
 
     <!-- 自定义设置 -->
     <!--
@@ -91,8 +110,8 @@
                 <!-- aplayer inner -->
                 <div id="aplayer-inner" class="aplayer"></div>
                 <!-- end aplayer inner -->
-
-                <footer>                   
+                
+                <footer onload = getD1()>                   
                     <!-- 
                         技术栈标签, 小标签来自: https://shields.io/
                         https://shields.io/badges/static-badge
@@ -108,7 +127,7 @@
 
                     -->
                     <!--网页信息条-->
-                    <div>
+                    <div style="text-align: center;">
                         <a class="github-badge" target="_blank" href="https://github.com/" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="本站代码由Github托管">
                             <img src="https://img.shields.io/badge/Code-Github-blue?style=flat&amp;logo=GitHub" alt=""></a>
@@ -121,25 +140,16 @@
                         <a class="github-badge" target="_blank" href="https://github.com/54ayao/Chinajsdelivr" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="本站使用jsDelivrChina提供CDN加速">
                             <img src="https://img.shields.io/badge/CDN-jsDelivr-blue?style=flat&amp;logo=jsDelivr" alt=""></a>
-                        <a class="github-badge" target="_blank" href="https://v.iarc.top/" 
-                            rel="external nofollow noreferrer" style="margin-inline:5px" title="音乐使用圆弧派API">
-                            <img src="https://img.shields.io/badge/Listen-圆弧派API-blue?style=flat" alt=""></a>
-                        <a class="github-badge" target="_blank" href="https://www.jun.la/" 
-                            rel="external nofollow noreferrer" style="margin-inline:5px" title="60s新闻使用小军博客API">
-                            <img src="https://img.shields.io/badge/60s-小俊API-blue?style=flat" alt=""></a>
-                        <a class="github-badge" target="_blank" href="https://finicounter.eu.org" 
-                            rel="external nofollow noreferrer" style="margin-inline:5px" title="Finicounter计数">
-                            <img src="https://img.shields.io/badge/Counter-Finicounter-blue?style=flat" alt=""></a>
-                        <a class="github-badge" target="_blank" href="https://busuanzi.ibruce.info" 
-                            rel="external nofollow noreferrer" style="margin-inline:5px" title="不蒜子计数">
-                            <img src="https://img.shields.io/badge/Counter-不蒜子-blue?style=flat" alt=""></a>                     
-                        
                     </div>
-                    <p style="text-align: right;">
-                        本站总访问量：
+                    <p>
+                        <a class="right">
+                            本站总访问量：
                         <span id="finicount_views"></span>次(Finicounter)&emsp;|&emsp;
                         <span id="busuanzi_value_site_pv"></span>次(不蒜子)
-                    </p>
+                        </a>
+                        <a class="left"><span id="time"></span></a>
+                        <div style="clear:both;"></div>
+                    </p>                
                 </footer>
             </div>
         </div>
@@ -156,6 +166,17 @@
     <script src="./static/layer-v3.5.1/layer/layer.js"></script>
 
     <script src="./static/main.js"></script>
+
+    <!-- 实时显示时间 -->
+    <script>
+        function mytime(){
+            var a = new Date();
+            var b = a.toLocaleTimeString();
+            var c = a.toLocaleDateString();
+            document.getElementById("time").innerHTML = c+"&nbsp"+b;
+            }
+        setInterval(function() {mytime()},1000);
+    </script>
     
     <!-- swiper
     <script src="./static/swiper-11.0.3/swiper-bundle.min.js"></script>
