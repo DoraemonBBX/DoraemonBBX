@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <link rel="stylesheet" href="./css/list.css">
+  <link rel="stylesheet" href="./css/switch.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/clipboard.min.js"></script>
+</head>
+
+<body>
+  <div id="song_box" class="song_box">
+    <div id="songNum" class="songNum">序号</div>
+    <div id="songName" class="songName">名字</div>
+    <p style="color: rgb(83, 83, 83);"><br></p>
+    <div id="singerName" class="singerName"></div>
+    <div><button onclick="add_del_onclick()" class="btn" id="del_btn"><i class="fa fa-trash-o"></i></button></div>
+    <div><button onclick="play_btn_onclick()" class="btn" id="play_btn"><i class="fa fa-play-circle"></i></button></div>
+  </div>
+
+  <div class="saveList">
+    <div style="flex: 1;"><button id="clear" onclick="clear_onclick()">清空播放列表</button></div>
+    <!-- <div style="flex: 1;"><button id="like" onclick="clear_onclick()">我的喜欢</button></div> -->
+    <div style="flex: 1;"><button id="saveList" onclick="save_onclick()">保存到音乐盒</button></div>
+  </div>
+
+
+  <div id="page_num">
+    <a href="javascript:;" onclick="flippingPages(0)">
+      <font size="3rem"><i class="fa fa-chevron-left"></i>&ensp;</font>
+    </a>
+    <span id="pageNum">1</span>
+    <a href="javascript:;" onclick="flippingPages(1)">
+      <font size="3rem">&ensp;<i class="fa fa-chevron-right"></i></font>
+    </a>
+  </div>
+
+  <div id="set_box" class="set_box">
+    <div id="timer_box">
+      <h2>定时关闭</h2>
+      <p id="timerTips" style="font-size: 1rem; padding: 5px 0;">当前定时未开启</p>
+      <div class="set_op">
+        <input id="setTimer" style="margin-right: 8px;" type="text" placeholder="分钟（0关闭定时）" value="" />
+        <a href="javascript:;" onclick="window.parent.setTimedStop()">开启</a>
+      </div>
+    </div>
+    <div id="pcShowLrc_box">
+      <h2>系统歌词显示</h2>
+      <p style="font-size: 1rem; padding: 5px 0;">显示 &ensp;
+        <span>
+          <select id="lrcSelect" onchange="lrcSelectOnchange()" style="background-color: rgba(255, 255, 255, 0); border-radius: 2px; padding: 1px; outline: 0;">
+            <option value="open">打开</option>
+            <option value="close">关闭</option>
+          </select>
+        </span>
+      </p>
+      <p>当前权限: <span id="NotiPerm"></span></p>
+    </div>
+    <div id="theme_box">
+      <h2>自定义主题</h2>
+      <div class="set_op">
+        <div style="padding-right: 8px;">
+          <set_title>列表颜色</set_title>
+        </div>
+        <div style="padding-right: 8px;"><input class="set_val" placeholder="色值（0恢复默认）" type="text" value="" /></div>
+        <div><a href="javascript:;" onclick="set_a_enter(0)">确定</a></div>
+      </div>
+      <div class="set_op">
+        <div style="padding-right: 8px;">
+          <set_title>选项颜色</set_title>
+        </div>
+        <div style="padding-right: 8px;"><input class="set_val" placeholder="色值（0恢复默认）" type="text" value="" /></div>
+        <div><a href="javascript:;" onclick="set_a_enter(1)">确定</a></div>
+      </div>
+      <div class="set_op">
+        <div style="padding-right: 8px;">
+          <set_title>歌词颜色</set_title>
+        </div>
+        <div style="padding-right: 8px;"><input class="set_val" placeholder="色值（0恢复默认）" type="text" value="" /></div>
+        <div><a href="javascript:;" onclick="set_a_enter(2)">确定</a></div>
+      </div>
+      <div class="set_op">
+        <div style="padding-right: 8px;">
+          <set_title>背景图片</set_title>
+        </div>
+        <div style="padding-right: 8px;"><input class="set_val" placeholder="图片链接（0恢复默认）" type="text" value="" />
+        </div>
+        <div><a href="javascript:;" onclick="set_a_enter(3)">确定</a></div>
+      </div>
+      <div class="set_op">
+        <div style="padding-right: 8px;">
+          <set_title>玻璃模糊</set_title>
+        </div>
+        <div id="glassSwitch" onclick="glassSwitchOnclick()"></div>
+      </div>
+
+      <a target="_blank" style="font-size: 14px;" href="https://mu-jie.cc/static-pages/color.html">颜色选择器</a>
+      &
+      <a target="_blank" style="font-size: 14px;" href="https://mu-jie.cc/static-pages/img-upload.html">图床工具</a>
+      <br>不会更换颜色和背景图？
+      <a target="_blank" href="https://mu-jie.cc/static-pages/theme-help.html" style="font-size: 12px;">查看帮助</a>
+    </div>
+    <div id="backups_box">
+      <h2>备份</h2>
+      <h3 style="display: inline;">列表与歌单&emsp;</h3>
+      <a href="javascript:;" class="export_btn" onclick="backup_onclick('export')"
+        data-clipboard-text="copy_content">导出备份</a>
+      &ensp;
+      <a href="javascript:;" onclick="backup_onclick('import')" data-clipboard-text="copy_content">恢复数据</a>
+      <br>
+      <h3 style="display: inline;">主题&emsp;</h3>
+      <a href="javascript:;" onclick="theme_onclick('export')" class="export_btn"
+        data-clipboard-text="copy_content">导出主题</a>
+      &ensp;
+      <a href="javascript:;" onclick="theme_onclick('import')">导入主题</a>
+    </div>
+    <div id="about_box">
+      <font color="#323232">音乐盒APP
+        <a target="_blank" style="font-size: 14px;"
+              href="https://ali.mu-jie.cc/static/%E6%98%94%E6%9E%AB%E9%9F%B3%E4%B9%90%E7%9B%92.apk"> 点击下载</a>(仅安卓)</font>
+      <p>
+        版本: v<span id="version"></span>
+      </p>
+      <details>
+        <summary>关于原作者</summary>
+      <p>作者:
+        <a href="https://mu-jie.cc" target="_blank" style="font-size: 12px;">昔枫沐杰</a>
+      </p>
+      <p>Github:
+        <a target="_blank" style="font-size: 12px;" href="https://github.com/xfmujie">https://github.com/xfmujie
+        </a>
+      </p>
+      <p>B站:
+        <a target="_blank" style="font-size: 12px;"
+          href="https://space.bilibili.com/32269901?spm_id_from=333.1007.0.0">https://space.bilibili.com/32269901
+        </a>
+      </p>
+      <p>反馈:
+        <a target="_blank" style="font-size: 12px;"
+          href="https://mu-jie.cc/comments/">https://mu-jie.cc/comments/
+        </a>
+      </p>
+      <p>
+        <a target="_blank" style="font-size: 12px;" href="https://mu-jie.cc/musicBoxUpdate/">
+          更新日志
+        </a>
+      </p>
+      <p>
+        <a class="link" target="_blank" style="font-size: 12px;" href="https://mu-jie.cc/static-pages/zanshang.html">buy
+          me a juice ^o^</a>
+      </p>
+      </details>
+    </div>
+    <div id="play_time"></div>
+  </div>
+  <div id="box_box" class="box_box">
+    <div class="id_search">
+      <input id="idValue" type="text" placeholder="音乐盒ID / 酷我或网易云歌单链接" onkeydown="onkey(event)" value="" />
+      <a href="javascript:;" onclick="getSongList()">添加</a>
+    </div>
+  </div>
+  <script src="./js/switch.js"></script>
+  <script src="./js/list.js"></script>
+</body>
+
+</html>
