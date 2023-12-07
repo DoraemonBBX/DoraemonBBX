@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>音乐盒</title>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <meta http-equiv="Content-Security-Policy" content="media-src http:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="苦橘馆,音乐播放器,VIP音乐解析,音乐盒">
+  <meta name="description" content="在线音乐播放器，免费音乐解析">
+  <link rel="shortcut icon" href="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/%E5%9B%BE%E5%BA%8A/logoicon.ico"
+    type="image/x-icon">
+  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/plyr.js"></script>
+  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/clipboard.min.js"></script>
+  <!-- 加载相关 CSS 文件 -->
+  <link rel="stylesheet" href="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/plyr.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/loadding.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+    <div id="sidebar_op">
+      <div onclick="playPageOpenOrClose()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/椰子树-1.png">沉浸播放模式<br><span class="explainSpan">在首页点击歌曲封面也能进入沉浸播放</span></div>
+      <div onclick="searchSourceChange()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/箭头_左右切换_o.png">搜索曲库: <span id="searchSource"></span><span class="explainSpan">(点击切换)<br>仅搜索区分曲库，列表曲库可混合</span></div>
+      <div onclick="wyySongListRecommend()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/推荐-产品详情.png">歌单推荐<br><span class="explainSpan">网易云/酷我/热门/分类</span></div>
+      <div onclick="jumpToSetupOnclick()"><img class="sidebar-icon_single-row" src="https://ali.mu-jie.cc/img/ui_icon/setting.png">设置</div>
+      <!-- <div id="huabing"></div> -->
+      <a target="_blank" href="https://mu-jie.cc/musicBoxUpdate/">
+        <div><img class="sidebar-icon_single-row" src="https://ali.mu-jie.cc/img/ui_icon/日志.png">更新日志</div>
+      </a>
+    </div>
+    <div id="sidebar_op_wyySongList">
+      <button class="return_sidebar_btn" onclick="returnToSidebarOnclick()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+      <span class="sidebar_op_page_title">歌单推荐</span>
+      <div id="songListSearchBtn" onclick="songListSearch()"><i class="fa fa-search"></i></div>
+      <!-- <p style="position: absolute; top: 50px; left: 50%; transform: translate(-50%);" >即将开发</p> -->
+      <div id="songListGridDiv">
+        <select id="songListSelect" onchange="selectInit()">
+          <option value="kw">酷我</option>
+          <option value="wyy">网易云</option>
+        </select>
+        <select id="categoriesSelect1" onchange="categoriesSelect()"></select>
+        <select id="categoriesSelect2" onchange="subCategoriesSelect()"></select>
+        <div class="grid-container" id="gridContainer"></div>
+        <div class="loader"></div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="sidebar2">
+    <div>
+      <button id="play_page_close_btn" onclick="playPageOpenOrClose()"><i class="fa fa-angle-right"
+          aria-hidden="true"></i></button>
+      <!-- <button id="share_btn" onclick="captureElement()"><i class="fa fa-share-square-o" aria-hidden="true"></i></button> -->
+    </div>
+    <div>
+      <h3 id="sidebarSongName">音乐盒</h3>
+      <h5 id="sidebarSingerName">VIP音乐解析</h5>
+    </div>
+    <div>
+      <img id="cover2" width="40%" src="https://ali.mu-jie.cc/img/cover01.png" />
+    </div>
+    <div id="sidebarLrc">
+      <div style="height: 30%;width: 100%;"></div>
+      <div id="lrc_p">
+      </div>
+      <div style="height: 30%;width: 100%;"></div>
+    </div>
+      <div id="progressBar">
+        <span id="time-label">00:00</span>
+        <input type="range" min="0" max="100" value="0" step="0.1" id="progress" onchange="progressOnchange()">
+        <span id="duration">00:00</span>
+      </div>
+    <div id="PlayControl">
+      <div><button class="playBtn" title="" onclick="likeOnclick();"><i class="fa fa-heart"></i></button></div>
+      <div><button class="PlayControlBtn" title="" onclick="nextPlay('pre');">
+          <i class="fa fa-step-backward"></i>
+        </button></div>
+      <div><button class="PlayControlBtn" id="PlayStatus" title="" onclick="playOrPauseOnclick()"><i
+            class="fa fa-play"></i></button></div>
+      <div><button class="PlayControlBtn" title="" onclick="nextPlay('next');"><i
+            class="fa fa-step-forward"></i></button></div>
+      <div><button class="playBtn" title="" onclick="playListBtnOnclick()"><i class="fa fa-list"></i></button></div>
+    </div>
+    <div id="comment"><!-- 评论 --></div>
+    <div class="play_page_song_list">
+      <div id="play_page_song_list"></div>
+    </div>
+  </div>
+  <div class="search">
+    <div class="menu"><button title="" onclick="menu_onclick()"><i class="fa fa-bars"></i></button></div>
+    <div class="search_box"><input id="search_box" type="text" placeholder="请输入歌曲/歌手" value=""></div>
+    <div class="search_btn"><button id="search_btn" title="" onclick="search_onclick()"><i
+          class="fa fa-search"></i></button>
+    </div>
+  </div>
+  <div class="music_box" id="music_box" aria-hidden="true">
+    <div class="img" onclick="playPageOpenOrClose()"><img id="cover" width="88px"
+        src="https://ali.mu-jie.cc/img/cover01.png" />
+    </div>
+    <div class="song">
+      <span id="songName">歌曲</span>
+      <span>-</span>
+      <span id="singerName">歌手</span>
+    </div>
+    <div class="lrc_box">
+      <p id="lrc1" class="lrc">音乐盒</p>
+      <p id="lrc2" class="clear">VIP音乐解析</p>
+    </div>
+    <!-- 添加一个 <audio> 标签 -->
+    <div style="display: flex; width: 100%;">
+      <audio controls id="music">
+        <source src="https://ali.mu-jie.cc/static/null.mp3">
+      </audio>
+      <button class="playBtn" onclick="downloadOnclick();"><i class="fa fa-arrow-down"></i></button>
+      <button class="playBtn" onclick="likeOnclick();"><i class="fa fa-heart"></i></button>
+      <button class="playBtn" onclick="nextPlay('pre');"><i class="fa fa-fast-backward"></i></button>
+      <button class="playBtn" onclick="playbackModeOnclick();" id="loopBtn"></button>
+      <button class="playBtn" onclick="nextPlay('next');"><i class="fa far fa-fast-forward"></i></button>
+    </div>
+  </div>
+  <div class="searchORlist">
+    <div class="btn_box">
+      <div id="opBar"></div>
+      <button id="listBtn" title="" onclick="listBtn_onclick()">列表</button>
+      <button id="resultBtn" title="" onclick="resultBtn_onclick()">搜索</button>
+      <button id="boxBtn" title="" onclick="boxBtn_onclick()">音乐盒</button>
+      <button id="setBtn" title="" onclick="setBtn_onclick()">设置</button>
+    </div>
+    <div class="songList"><iframe class="iframe" id="iframe" src="./songList.html"></iframe></div>
+  </div>
+  <div class="footnote">
+    <div style="height: 12px;"></div>
+    <footer>Copyright © 2023
+      <a href="https://doraemon.js.cool/" target="_blank" rel="noopener noreferrer">苦橘馆</a>
+      |
+      <a href="https://mu-jie.cc" target="_blank" rel="noopener noreferrer">昔枫沐杰</a>
+      <br>
+      总访问量 <span id="visits_span"></span> 次
+    </footer>
+  </div>
+  <script src="./js/Popup.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/opensug.js"></script>
+  <script src="./js/sug.js"></script>
+</body>
+
+</html>
