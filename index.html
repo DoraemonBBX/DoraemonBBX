@@ -12,8 +12,8 @@
     <!-- 浏览器标签上显示的图标 -->
     <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">
     <!-- 样式文件 -->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" crossorigin="anonymous" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="./static/style.css?v=1.2.0">
     <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
     <!-- 实时显示时间 -->
@@ -53,7 +53,7 @@
 
         .photo-bg {
             /* 卡片左侧图片 */
-            background-image: url("https://imgapi.cn/api.php?zd=zsy&fl=suiji&gs=images");            
+            background-image: url("https://imgapi.cn/api.php?zd=zsy&fl=suiji&gs=images");
         }
     </style>
     <script>
@@ -65,8 +65,8 @@
         let music_order = "random"; // 音频循环顺序, 顺序播放： 'list', 随机播放：'random'
         let music_mini = false; // mini模式 吸底模式开启后此选项实效 true / false
         let music_fixed = false; // 吸底模式
-        let music_volume = 0.6; // 默认音量
-        let music_autoplay = false; // 自动播放
+        let music_volume = 0.45; // 默认音量
+        let music_autoplay = true; // 自动播放
         let music_loop = "all"; // 音频循环播放, 可选值: 'all', 'one', 'none' ，分别为全部循环，单曲循环，不循环
         // TODO 一言设置
     </script>
@@ -92,24 +92,26 @@
                 <div class="container-fluid" >
                     <div class="row align-items-center" >
                         <!-- 导航按钮组 -->
-                        <!-- HTML中button标签点击实现页面跳转的三种方法: https://www.jb51.net/web/675851.html
+                        <!--
+                            HTML中button标签点击实现页面跳转的三种方法: https://www.jb51.net/web/675851.html
                             window.location.href和window.open的几种用法和区别: https://www.cnblogs.com/Qian123/p/5345298.html
-                          -->                        
-                        <button window.location.href="https://tangerine.eu.org/" data-title="書·影" data-window="newtab" data-anim="4" 
-                              data-shade="true" disabled="true"
-                            class="kz-nav-btn btn btn-secondary col-lg-4">書·影</button>
+                        -->
+                        <button window.location.href="https://allotrope-2095.xlog.app/" data-title="link" data-window="newtab" data-anim="4" 
+                              data-shade="true" disabled="false"
+                            class="kz-nav-btn btn btn-secondary col-lg-4">xlog</button>
         
                         <button data-href="https://link3.cc/tangerine" data-title="link" data-window="pop" data-anim="4" 
-                              data-shade="false"
+                              data-shade="true"
                             class="kz-nav-btn btn btn-primary col-lg-4">Link3</button>
                        
-                        <button data-href="/60s.html" data-title="link" data-window="pop" data-anim="4" 
-                             data-shade="false"
+                        <button data-href="./60s.html" data-title="link" data-window="pop" data-anim="4" 
+                             data-shade="true"
                             class="kz-nav-btn btn btn-info col-lg-4">60s简报</button>
-                          <!--
+                        <!--
                         <button data-href="" data-title="link" data-window="pop" data-anim="4" 
                             data-shade="false" disabled="true"
-                           class="kz-nav-btn btn btn-warning col-lg-3">About</button> -->
+                           class="kz-nav-btn btn btn-warning col-lg-3">About</button>
+                        -->
                         <!-- end 导航按钮组 -->
                     </div>
                 </div>
@@ -134,24 +136,27 @@
                     -->
                     <!--网页信息条-->
                     <div style="text-align: center;">
+                        <a class="github-badge" target="_blank" href="https://greatbug.js.cool/" 
+                        rel="external nofollow noreferrer" style="margin-inline:5px" title="小柒的个人引导页">
+                        <img src="https://img.shields.io/badge/页面-小柒-blue" alt=""></a>
+                        <a class="github-badge" target="_blank" href="https://mp.weixin.qq.com/s/z6jXKmTdi9yPKyadk48UHw" 
+                        rel="external nofollow noreferrer" style="margin-inline:5px" title="本站由公众号苦橘馆创建">
+                        <img src="https://img.shields.io/badge/公众号-苦橘馆-blue" alt=""></a>
                         <a class="github-badge" target="_blank" href="https://github.com/" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="本站代码由Github托管">
-                            <img src="https://img.shields.io/badge/Code-Github-blue?style=flat&amp;logo=GitHub" alt=""></a>
+                            <img src="https://img.shields.io/badge/Code-Github-blue" alt=""></a>
                         <a class="github-badge" target="_blank" href="https://vercel.com/" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="本站由vercel托管">
-                            <img src="https://img.shields.io/badge/Hosting-vercel-blue?style=flat&amp;logo=vercel" alt=""></a>
+                            <img src="https://img.shields.io/badge/Hosting-vercel-blue" alt=""></a>
                         <a class="github-badge" target="_blank" href="https://future.170601.xyz/KZHomePage/" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="主题KZHomePage">
-                            <img src="https://img.shields.io/badge/Theme-KZHomePage-blue?style=flat&amp;logo=githubpages" alt=""></a>
-                        <a class="github-badge" target="_blank" href="https://imgapi.cn/" 
-                            rel="external nofollow noreferrer" style="margin-inline:5px" title="本站图片来源：IMGapi">
-                            <img src="https://img.shields.io/badge/随机图-IMGapi-blue?style=flat" alt=""></a>
+                            <img src="https://img.shields.io/badge/Theme-KZHomePage-blue" alt=""></a>
                     </div>
                     <p>
                         <a class="right">
-                            本站总访问量：
-                        <span id="finicount_views"></span>次(Finicounter)&emsp;|&emsp;
-                        <span id="busuanzi_value_site_pv"></span>次(不蒜子)
+                        本站总访问量：
+                            <span id="finicount_views"></span>次(Finicounter)&emsp;|&emsp;
+                            <span id="busuanzi_value_site_pv"></span>次(不蒜子)
                         </a>
                         <a class="left"><span id="time"></span></a>
                         <div style="clear:both;"></div>
@@ -163,12 +168,12 @@
 </body>
     <!-- aplayer -->
     <div id="aplayer-fixed" class="aplayer"></div>
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.unpkg.com/jquery@3.7.1/dist/jquery.js" crossorigin="anonymous"></script>
     <script src="./static/APlayer-1.10.1/dist/APlayer.min.js"></script>
     <script src="./static/Meting.min.js"></script>
     <!-- end_aplayer -->
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script defer src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="./static/layer-v3.5.1/layer/layer.js"></script>
 
     <script src="./static/main.js"></script>

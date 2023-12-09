@@ -10,10 +10,33 @@
     <meta name="description" content="小柒的『角落』">
     <meta name="keywords" content="个人主页,苦橘馆">
     <!-- 浏览器标签上显示的图标 -->
-    <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">    
+    <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">
+        <!-- 样式文件 -->
+        <link rel="stylesheet" crossorigin="anonymous" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+        <link rel="stylesheet" href="./static/style.css?v=1.2.0">
+    <!-- 实时显示时间 -->
+    <script>
+        function mytime(){
+            var a = new Date();
+            var b = a.toLocaleTimeString();
+            var c = a.toLocaleDateString();
+            document.getElementById("time").innerHTML = c+"&nbsp"+b;
+            }
+        setInterval(function() {mytime()},1000);
+    </script>
+    <style>
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+    </style>
 </head>
 
-<body style="background-color:aliceblue;">
+<body style="background-color:#fffbf0;">
     <!-- 大标题 -->    
     <h1 style="text-align: center; color: rgba(218, 143, 5, 0.923); font-weight: bolder; ">每天60秒读懂世界</h1>
     <!-- 标题下的一段话 -->
@@ -21,7 +44,7 @@
         每天60秒读懂世界，15条简报+1条微语，让你瞬间了解世界正在发生的大事。
     </p>
     <div style="text-align: center; ">
-        <img alt="" src="https://api.jun.la/60s.php?format=image" style="margin: 0 auto;" />
+        <img alt="" src="https://api.jun.la/60s.php?format=image" style="justify-content:center;" width="80%" height="auto"/>
     </div>   
 </body>
     <!-- 禁用F12代码 -->
