@@ -12,7 +12,7 @@
     <!-- 浏览器标签上显示的图标 -->
     <link rel="icon" type="image/ico" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png">
     <!-- 样式文件 -->
-    <link rel="stylesheet" crossorigin="anonymous" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="./static/style.css?v=1.2.0">
     <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
@@ -96,20 +96,33 @@
                             HTML中button标签点击实现页面跳转的三种方法: https://www.jb51.net/web/675851.html
                             window.location.href和window.open的几种用法和区别: https://www.cnblogs.com/Qian123/p/5345298.html
                         -->
-                        <button window.location.href="https://allotrope-2095.xlog.app/" data-title="link" data-window="newtab" data-anim="4" 
-                              data-shade="true" disabled="false"
-                            class="kz-nav-btn btn btn-secondary col-lg-4">xlog</button>
+                        <button window.location.href="https://allotrope-2095.xlog.app/" data-title="link" data-window="newtab" data-anim="4" data-area-w="80%" data-area-h="90%"
+                              data-shade="false" disabled="false"
+                            class="kz-nav-btn btn btn-secondary col-lg-2">xlog</button>
         
-                        <button data-href="https://link3.cc/tangerine" data-title="link" data-window="pop" data-anim="4" 
-                              data-shade="true"
-                            class="kz-nav-btn btn btn-primary col-lg-4">Link3</button>
+                        <button data-href="https://link3.cc/tangerine" data-title="link" data-window="pop" data-anim="4" data-area-w="80%" data-area-h="90%"
+                              data-shade="false"
+                            class="kz-nav-btn btn btn-primary col-lg-2">Link3</button>
                        
-                        <button data-href="./60s.html" data-title="link" data-window="pop" data-anim="4" 
-                             data-shade="true"
-                            class="kz-nav-btn btn btn-info col-lg-4">60s简报</button>
+                        <button data-href="./60s.html" data-title="link" data-window="pop" data-anim="4" data-area-w="80%" data-area-h="90%"
+                             data-shade="false"
+                            class="kz-nav-btn btn btn-info col-lg-2">60s简报</button>
+                            
+                        <button data-href="./musci.html" data-title="music" data-window="newtab" data-anim="4" 
+                        	data-area-w="80%" data-area-h="90%" data-shade="false"
+                            class="kz-nav-btn btn btn-secondary col-lg-2">音乐</button>
+                        
+                        <button data-href="./reward.html" data-title="music" data-window="pop" data-anim="4" 
+                        	data-area-w="80%" data-area-h="90%" data-shade="false"
+                            class="kz-nav-btn btn btn-secondary col-lg-2">赞助</button>
+                        
+                        <button data-href="" data-title="music" data-window="newtab" data-anim="4" 
+                        	data-area-w="80%" data-area-h="90%" data-shade="false" disabled="true"
+                            class="kz-nav-btn btn btn-secondary col-lg-2">关于</button>
+                            
                         <!--
-                        <button data-href="" data-title="link" data-window="pop" data-anim="4" 
-                            data-shade="false" disabled="true"
+                        <button data-href="" data-title="link" data-window="pop" data-anim="4" data-area-w="80%" data-area-h="90%"
+                            data-shade="false" disabled="false"
                            class="kz-nav-btn btn btn-warning col-lg-3">About</button>
                         -->
                         <!-- end 导航按钮组 -->
@@ -138,7 +151,7 @@
                     <div style="text-align: center;">
                         <a class="github-badge" target="_blank" href="https://greatbug.js.cool/" 
                         rel="external nofollow noreferrer" style="margin-inline:5px" title="小柒的个人引导页">
-                        <img src="https://img.shields.io/badge/页面-小柒-blue" alt=""></a>
+                        <img src="https://img.shields.io/badge/个人页面-小柒-blue" alt=""></a>
                         <a class="github-badge" target="_blank" href="https://mp.weixin.qq.com/s/z6jXKmTdi9yPKyadk48UHw" 
                         rel="external nofollow noreferrer" style="margin-inline:5px" title="本站由公众号苦橘馆创建">
                         <img src="https://img.shields.io/badge/公众号-苦橘馆-blue" alt=""></a>
@@ -151,7 +164,8 @@
                         <a class="github-badge" target="_blank" href="https://future.170601.xyz/KZHomePage/" 
                             rel="external nofollow noreferrer" style="margin-inline:5px" title="主题KZHomePage">
                             <img src="https://img.shields.io/badge/Theme-KZHomePage-blue" alt=""></a>
-                    </div>
+                    </div>                    
+                    <hr style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="80%"color="#987cb9" SIZE=10>             
                     <p>
                         <a class="right">
                         本站总访问量：
@@ -168,12 +182,12 @@
 </body>
     <!-- aplayer -->
     <div id="aplayer-fixed" class="aplayer"></div>
-    <script src="https://www.unpkg.com/jquery@3.7.1/dist/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="./static/APlayer-1.10.1/dist/APlayer.min.js"></script>
     <script src="./static/Meting.min.js"></script>
     <!-- end_aplayer -->
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="./static/layer-v3.5.1/layer/layer.js"></script>
 
     <script src="./static/main.js"></script>

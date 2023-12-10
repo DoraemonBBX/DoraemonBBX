@@ -104,13 +104,13 @@ strike {
     border-radius: 0;
     margin: 5px 0;
     width: 100%;
-    padding: 10px;
+    padding: 12px 10px;
     transition: ease;
 }
 
 .btn-primary {
     /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
-    padding: 10px;
+    padding: 12px 10px;
     transition: ease;
 }
 
@@ -120,7 +120,7 @@ strike {
 
 .btn-secondary {
     /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
-    padding: 10px;
+    padding: 12px 10px;
     transition: ease;
 }
 
@@ -130,7 +130,7 @@ strike {
 
 .btn-success {
     /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
-    padding: 10px;
+    padding: 12px 10px;
     transition: ease;
 }
 
@@ -166,7 +166,6 @@ strike {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
 }
 
 footer p {
