@@ -272,7 +272,7 @@ function isMobile() {
 
 
 //全局变量定义
-var lrc = [{ "lineLyric": "昔枫音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
+var lrc = [{ "lineLyric": "苦橘馆音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
 var lrc_count = 0;
 var mp3Url = "";
 var displayFlag = 'play';
@@ -406,7 +406,7 @@ function switchSongs(parameter) {
   var singer = parameter['artist'];
   songName.innerHTML = name.slice(0, 15 + (name.length - name.replace(/&[a-z]+;/g, " ").length));
   singerName.innerHTML = singer.slice(0, 15 + (singer.length - singer.replace(/&[a-z]+;/g, " ").length));
-  document.title = `${name.replace(/&[a-z]+;/g, " ")} - ${singer.replace(/&[a-z]+;/g, " ")}  (昔枫音乐盒)`;
+  document.title = `${name.replace(/&[a-z]+;/g, " ")} - ${singer.replace(/&[a-z]+;/g, " ")}  (苦橘馆音乐盒)`;
 
   document.querySelector('#cover2').src = parameter["pic"];
   document.querySelector('#sidebarSongName').innerHTML = name;
@@ -566,12 +566,9 @@ if (`${currentDate.getMonth()}` !== localStorage.getItem('Zeroing')) {
 //初始化
 initStorage('musicBoxList', '[]');
 
-//版本升级消息
-if (localStorage.getItem('Version') !== Version) {
-  popup.alert(`<font color="#323232">v${Version} 更新<br><br>1. 新增网易云歌单搜索<br>2. 优化播放页歌曲进度条样式<br><a target="_blank" href="https://mu-jie.cc/musicBoxUpdate/">查看历史更新</a></font>`);
-  localStorage.setItem('Version', Version)
-}
-version_span.innerHTML = Version;
+//弹窗提示
+  popup.alert(`<font color="#323232">苦橘馆公告：<br><br>1. 请勿大肆宣扬<br>2. 且用且珍惜<br><a target="_blank" href="https://doraemon.js.cool/">苦橘馆导航页</a></font>`);
+
 
 //访问量统计(个人搭建，不支持其他url)
 if (window.location.href == 'https://mu-jie.cc/musicBox/' || window.location.href == 'http://localhost:5930/') {
@@ -599,7 +596,7 @@ window.addEventListener('error', function (event) {
   }
 }, true);
 
-
+// 歌词页显示
 function playReset() {
   audioPlayer.src = 'https://ali.mu-jie.cc/static/null.mp3';
   audioPlayer.pause();
@@ -608,20 +605,20 @@ function playReset() {
   lrc_count = 0;
   songName.innerHTML = '歌曲';
   singerName.innerHTML = '歌手';
-  document.title = '昔枫音乐盒';
-  lrc = [{ "lineLyric": "昔枫音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
-  cover.src = 'https://ali.mu-jie.cc/img/cover01.png';
+  document.title = '苦橘馆音乐盒';
+  lrc = [{ "lineLyric": "苦橘馆音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
+  cover.src = '';
   iframe.lastNum = 9999;
   playingNum = 9999;
   clearInterval(timeCount);
   iframe.pagePX = 0;
-  document.querySelector('#sidebarSongName').innerHTML = '昔枫音乐盒';
+  document.querySelector('#sidebarSongName').innerHTML = '音乐盒';
   document.querySelector('#sidebarSingerName').innerHTML = 'VIP音乐解析';
-  document.querySelector('#lrc_p').innerHTML = '<p>该页面正在开发中</p><p>可能存在Bug</p>';
-  document.querySelector('#cover2').src = 'https://ali.mu-jie.cc/img/cover01.png';
+  document.querySelector('#lrc_p').innerHTML = '<p>且用且珍惜</p><p>静静听歌就好</p>';
+  document.querySelector('#cover2').src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/img/heijiao.jpeg';
   lrcCurrentLine = 0;
   lrcUpdate(0);
-  root.style.setProperty('--music-cover', `url('https://ali.mu-jie.cc/img/cover01.png')`);
+  root.style.setProperty('--music-cover', `url('https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/img/jpeg')`);
   setTimeout(() => {
     playPageSongListUpdate(playList);
   }, 100);
@@ -806,7 +803,7 @@ if (window.innerWidth < 960 && !isMobile()) document.querySelectorAll('#sidebar_
 
 
 // 歌词滚动
-document.querySelector('#lrc_p').innerHTML = '<p>该页面正在开发中</p><p>可能存在Bug</p>';
+document.querySelector('#lrc_p').innerHTML = '<p>且用且珍惜</p><p>静静听歌就好</p>';
 lyricsScrolling(0);
 function lyricsScrolling(i) {
   try {
@@ -947,7 +944,7 @@ function mediaSessionUpdate() {
   navigator.mediaSession.metadata = new MediaMetadata({
     title: document.querySelector('#sidebarSongName').innerHTML.replace(/&[a-z]+;/g, " "),
     artist: document.querySelector('#sidebarSingerName').innerHTML.replace(/&[a-z]+;/g, " "),
-    album: '昔枫音乐盒',
+    album: '苦橘馆音乐盒',
     artwork: [{ src: cover.src, sizes: '120x120', type: 'image/png' }]
   });
 }
@@ -1439,7 +1436,7 @@ let opContent = {
   'wyy': [
     {
       "categories": "推荐",
-      "subCategories": ['推荐歌单']
+      "subCategories": ['推荐歌单','苦橘舘']
     },
     {
       "categories": "语种",

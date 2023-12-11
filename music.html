@@ -9,18 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="苦橘馆,音乐播放器,VIP音乐解析,音乐盒">
   <meta name="description" content="在线音乐播放器，免费音乐解析">
-  <link rel="shortcut icon" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/avatar.png"
+  <link rel="shortcut icon" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music.png"
     type="image/x-icon">
-  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/plyr.js"></script>
-  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/clipboard.min.js"></script>
+  <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/plyr.js"></script>
+  <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/clipboard.min.js"></script>
   <!-- 加载相关 CSS 文件 -->
-  <link rel="stylesheet" href="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/plyr.css">
-  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/css/main.css">
-  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/css/loadding.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/css/plyr.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/loadding.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/fontawesome.css">
 </head>
 
-<body style="background-image: url(https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG@master/wallpapers/03.png)">
+<body">
   <!-- 侧边栏 -->
   <div class="sidebar">
     <div id="sidebar_op">
@@ -28,6 +28,12 @@
       <div onclick="searchSourceChange()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/箭头_左右切换_o.png">搜索曲库: <span id="searchSource"></span><span class="explainSpan">(点击切换)<br>仅搜索区分曲库，列表曲库可混合</span></div>
       <div onclick="wyySongListRecommend()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/推荐-产品详情.png">歌单推荐<br><span class="explainSpan">网易云/酷我/热门/分类</span></div>
       <div onclick="jumpToSetupOnclick()"><img class="sidebar-icon_single-row" src="https://ali.mu-jie.cc/img/ui_icon/setting.png">设置</div>
+      <a target="_blank" href="https://doraemon.js.cool/">
+        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/webpagehome.png">苦橘馆<br><span class="explainSpan">苦橘馆发布页</span></div>
+      </a>
+      <a target="_blank" href="https://ifree8.com/">
+        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/zscc-icon.png">知识船仓<br><span class="explainSpan">终身学习者公益社群</span></div>
+      </a>
       <!-- <div id="huabing"></div> -->
     </div>
     <div id="sidebar_op_wyySongList">
@@ -59,7 +65,7 @@
       <h5 id="sidebarSingerName">VIP音乐解析</h5>
     </div>
     <div>
-      <img id="cover2" width="40%" src="https://ali.mu-jie.cc/img/cover01.png" />
+      <img id="cover2" width="40%" src="./images/heijiao.gif" />
     </div>
     <div id="sidebarLrc">
       <div style="height: 30%;width: 100%;"></div>
@@ -97,7 +103,7 @@
   </div>
   <div class="music_box" id="music_box" aria-hidden="true">
     <div class="img" onclick="playPageOpenOrClose()"><img id="cover" width="88px"
-        src="https://ali.mu-jie.cc/img/cover01.png" />
+        src="./images/heijiao.jpeg" />
     </div>
     <div class="song">
       <span id="songName">歌曲</span>
@@ -134,14 +140,14 @@
     <div style="height: 12px;"></div>
     <footer>Copyright © 2023
       <a href="https://doraemon.js.cool/" target="_blank" rel="noopener noreferrer">公众号「苦橘馆」</a>
-      |<a>昔枫音乐盒 v<span id="version_span"></span></a>
+      |&nbsp;昔枫音乐盒 v<span id="version_span"></span>
       <br>
       总访问量 <span id="visits_span"></span> 次
     </footer>
   </div>
-  <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/Popup.js"></script>
-  <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/main.js"></script>
-  <script src="https://mujie-data.oss-cn-shenzhen.aliyuncs.com/rely/opensug.js"></script>
+  <script src="./js/Popup.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/opensug.js"></script>
   <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/sug.js"></script>
 </body>
 
