@@ -567,9 +567,8 @@ if (`${currentDate.getMonth()}` !== localStorage.getItem('Zeroing')) {
 initStorage('musicBoxList', '[]');
 
 //弹窗提示
-  popup.alert(`<font color="#323232">苦橘馆公告：<br><br>1. 请勿大肆宣扬<br>2. 且用且珍惜<br><a target="_blank" href="https://doraemon.js.cool/">苦橘馆导航页</a></font>`);
-
-
+  popup.alert(`<font color="#323232">苦橘馆公告：<br><br>1. 低调使用<br>2. 且用且珍惜<br><a target="_blank" href="https://doraemon.js.cool/">苦橘馆导航页</a></font>`);
+  
 //访问量统计(个人搭建，不支持其他url)
 if (window.location.href == 'https://mu-jie.cc/musicBox/' || window.location.href == 'http://localhost:5930/') {
   fetch(`${BaseURL}/visits/`)
@@ -615,10 +614,10 @@ function playReset() {
   document.querySelector('#sidebarSongName').innerHTML = '音乐盒';
   document.querySelector('#sidebarSingerName').innerHTML = 'VIP音乐解析';
   document.querySelector('#lrc_p').innerHTML = '<p>且用且珍惜</p><p>静静听歌就好</p>';
-  document.querySelector('#cover2').src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/img/heijiao.jpeg';
+  document.querySelector('#cover2').src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg';
   lrcCurrentLine = 0;
   lrcUpdate(0);
-  root.style.setProperty('--music-cover', `url('https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/img/jpeg')`);
+  root.style.setProperty('--music-cover', `url('https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg')`);
   setTimeout(() => {
     playPageSongListUpdate(playList);
   }, 100);

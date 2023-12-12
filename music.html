@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>音乐盒</title>
+  <title>苦橘音樂舘</title>
   <meta charset="UTF-8">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <meta http-equiv="Content-Security-Policy" content="media-src http:;">
@@ -17,34 +17,38 @@
   <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/css/plyr.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/loadding.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/fontawesome.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/fontawesome.css">
 </head>
 
 <body">
   <!-- 侧边栏 -->
   <div class="sidebar">
     <div id="sidebar_op">
-      <div onclick="playPageOpenOrClose()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/椰子树-1.png">沉浸播放模式<br><span class="explainSpan">在首页点击歌曲封面也能进入沉浸播放</span></div>
-      <div onclick="searchSourceChange()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/箭头_左右切换_o.png">搜索曲库: <span id="searchSource"></span><span class="explainSpan">(点击切换)<br>仅搜索区分曲库，列表曲库可混合</span></div>
-      <div onclick="wyySongListRecommend()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/推荐-产品详情.png">歌单推荐<br><span class="explainSpan">网易云/酷我/热门/分类</span></div>
-      <div onclick="jumpToSetupOnclick()"><img class="sidebar-icon_single-row" src="https://ali.mu-jie.cc/img/ui_icon/setting.png">设置</div>
+      <div onclick="playPageOpenOrClose()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/椰子树-1.png">沉浸播放模式<br><span class="explainSpan">在首頁點擊歌曲封面也能進入沈浸播放</span></div>
+      <div onclick="searchSourceChange()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/箭头_左右切换_o.png">搜索曲庫: <span id="searchSource"></span><span class="explainSpan">(點擊切換)<br>僅搜索區分曲庫，列表曲庫可混合</span></div>
+      <div onclick="wyySongListRecommend()"><img class="sidebar-icon" src="https://ali.mu-jie.cc/img/ui_icon/推荐-产品详情.png">歌單推薦<br><span class="explainSpan">網易雲/酷我/熱門/分類</span></div>
+      <div onclick="jumpToSetupOnclick()"><img class="sidebar-icon_single-row" src="https://ali.mu-jie.cc/img/ui_icon/setting.png">設置</div>
+      <!-- <div id="huabing"></div> -->
       <a target="_blank" href="https://doraemon.js.cool/">
-        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/webpagehome.png">苦橘馆<br><span class="explainSpan">苦橘馆发布页</span></div>
+        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/webpagehome.png">苦橘舘<br><span class="explainSpan">苦橘館發布頁</span></div>
       </a>
       <a target="_blank" href="https://ifree8.com/">
-        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/zscc-icon.png">知识船仓<br><span class="explainSpan">终身学习者公益社群</span></div>
+        <div><img class="sidebar-icon_single-row" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/zscc-icon.png">知識船倉<br><span class="explainSpan">終身學習者公益社群</span></div>
       </a>
-      <!-- <div id="huabing"></div> -->
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/QR-Code/feishu.png" style="margin-right: 20px; height: 100px;">
+        <img src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/QR-Code/pay.jpg" style="height: 100px;">
+      </div>
     </div>
     <div id="sidebar_op_wyySongList">
       <button class="return_sidebar_btn" onclick="returnToSidebarOnclick()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-      <span class="sidebar_op_page_title">歌单推荐</span>
+      <span class="sidebar_op_page_title">歌單推薦</span>
       <div id="songListSearchBtn" onclick="songListSearch()"><i class="fa fa-search"></i></div>
       <!-- <p style="position: absolute; top: 50px; left: 50%; transform: translate(-50%);" >即将开发</p> -->
       <div id="songListGridDiv">
         <select id="songListSelect" onchange="selectInit()">
           <option value="kw">酷我</option>
-          <option value="wyy">网易云</option>
+          <option value="wyy">網易雲</option>
         </select>
         <select id="categoriesSelect1" onchange="categoriesSelect()"></select>
         <select id="categoriesSelect2" onchange="subCategoriesSelect()"></select>
@@ -61,11 +65,11 @@
       <!-- <button id="share_btn" onclick="captureElement()"><i class="fa fa-share-square-o" aria-hidden="true"></i></button> -->
     </div>
     <div>
-      <h3 id="sidebarSongName">昔枫音乐盒</h3>
-      <h5 id="sidebarSingerName">VIP音乐解析</h5>
+      <h3 id="sidebarSongName">苦橘音樂舘</h3>
+      <h5 id="sidebarSingerName">VIP音樂解析</h5>
     </div>
     <div>
-      <img id="cover2" width="40%" src="./images/heijiao.gif" />
+      <img id="cover2" width="40%" src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg" />
     </div>
     <div id="sidebarLrc">
       <div style="height: 30%;width: 100%;"></div>
@@ -103,7 +107,7 @@
   </div>
   <div class="music_box" id="music_box" aria-hidden="true">
     <div class="img" onclick="playPageOpenOrClose()"><img id="cover" width="88px"
-        src="./images/heijiao.jpeg" />
+        src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg" />
     </div>
     <div class="song">
       <span id="songName">歌曲</span>
@@ -111,7 +115,7 @@
       <span id="singerName">歌手</span>
     </div>
     <div class="lrc_box">
-      <p id="lrc1" class="lrc">昔枫音乐盒</p>
+      <p id="lrc1" class="lrc">苦橘音乐馆</p>
       <p id="lrc2" class="clear">VIP音乐解析</p>
     </div>
     <!-- 添加一个 <audio> 标签 -->
@@ -140,15 +144,19 @@
     <div style="height: 12px;"></div>
     <footer>Copyright © 2023
       <a href="https://doraemon.js.cool/" target="_blank" rel="noopener noreferrer">公众号「苦橘馆」</a>
-      |&nbsp;昔枫音乐盒 v<span id="version_span"></span>
       <br>
-      总访问量 <span id="visits_span"></span> 次
+      Mod by
+      <a href="https://mu-jie.cc/" target="_blank" rel="noopener noreferrer">昔枫沐杰</a>
+      <br>
+      本站总访问量：<span id="busuanzi_value_site_pv" style="display: inline; font-style: italic;"></span>次
     </footer>
   </div>
   <script src="./js/Popup.js"></script>
   <script src="./js/main.js"></script>
   <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/opensug.js"></script>
   <script src="https://jsd.cdn.zzko.cn/gh/DoraemonBBX/Copy@main/musicbox/js/sug.js"></script>
+  <!--引入不蒜子计数：https://busuanzi.ibruce.info/-->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 
 </html>
