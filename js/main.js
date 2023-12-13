@@ -272,7 +272,7 @@ function isMobile() {
 
 
 //全局变量定义
-var lrc = [{ "lineLyric": "苦橘馆音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
+var lrc = [{ "lineLyric": "苦橘音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
 var lrc_count = 0;
 var mp3Url = "";
 var displayFlag = 'play';
@@ -446,10 +446,10 @@ function search_onclick() {
 //等待iframe加载完成
 function onIFrameLoaded(iframe, callback) {
   function iframeLoaded() {
-    // 取消事件监听器，避免重复执行
+// 取消事件监听器，避免重复执行
     iframe.removeEventListener('load', iframeLoaded);
     // 执行回调函数
-    callback();
+    setTimeout(callback, 500);
   }
   if (iframe.attachEvent) {
     // IE浏览器
@@ -604,14 +604,14 @@ function playReset() {
   lrc_count = 0;
   songName.innerHTML = '歌曲';
   singerName.innerHTML = '歌手';
-  document.title = '苦橘馆音乐盒';
-  lrc = [{ "lineLyric": "苦橘馆音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
-  cover.src = '';
+  document.title = '苦橘音乐盒';
+  lrc = [{ "lineLyric": "苦橘音乐盒", "time": "2" }, { "lineLyric": "VIP音乐解析", "time": "4" }];
+  cover.src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg';
   iframe.lastNum = 9999;
   playingNum = 9999;
   clearInterval(timeCount);
   iframe.pagePX = 0;
-  document.querySelector('#sidebarSongName').innerHTML = '音乐盒';
+  document.querySelector('#sidebarSongName').innerHTML = '昔枫音乐盒';
   document.querySelector('#sidebarSingerName').innerHTML = 'VIP音乐解析';
   document.querySelector('#lrc_p').innerHTML = '<p>且用且珍惜</p><p>静静听歌就好</p>';
   document.querySelector('#cover2').src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg';
@@ -943,7 +943,7 @@ function mediaSessionUpdate() {
   navigator.mediaSession.metadata = new MediaMetadata({
     title: document.querySelector('#sidebarSongName').innerHTML.replace(/&[a-z]+;/g, " "),
     artist: document.querySelector('#sidebarSingerName').innerHTML.replace(/&[a-z]+;/g, " "),
-    album: '苦橘馆音乐盒',
+    album: '苦橘音乐盒',
     artwork: [{ src: cover.src, sizes: '120x120', type: 'image/png' }]
   });
 }
@@ -1435,7 +1435,7 @@ let opContent = {
   'wyy': [
     {
       "categories": "推荐",
-      "subCategories": ['推荐歌单','苦橘舘']
+      "subCategories": ['推荐歌单']
     },
     {
       "categories": "语种",
