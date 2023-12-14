@@ -449,7 +449,7 @@ function onIFrameLoaded(iframe, callback) {
 // 取消事件监听器，避免重复执行
     iframe.removeEventListener('load', iframeLoaded);
     // 执行回调函数
-    setTimeout(callback, 500);
+    callback();
   }
   if (iframe.attachEvent) {
     // IE浏览器
@@ -611,7 +611,7 @@ function playReset() {
   playingNum = 9999;
   clearInterval(timeCount);
   iframe.pagePX = 0;
-  document.querySelector('#sidebarSongName').innerHTML = '昔枫音乐盒';
+  document.querySelector('#sidebarSongName').innerHTML = '苦橘音乐盒';
   document.querySelector('#sidebarSingerName').innerHTML = 'VIP音乐解析';
   document.querySelector('#lrc_p').innerHTML = '<p>且用且珍惜</p><p>静静听歌就好</p>';
   document.querySelector('#cover2').src = 'https://jsd.cdn.zzko.cn/gh/DoraemonBBX/IMG/icon/music01.jpeg';
